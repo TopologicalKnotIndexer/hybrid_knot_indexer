@@ -4,3 +4,6 @@
 [submodule "src/HOMFLY-PT-indexer"]
 	path = src/HOMFLY-PT-indexer
 	url = git@github.com:TopologicalKnotIndexer/HOMFLY-PT-indexer.git
+[submodule "src/spatial_coord_to_pd_code"]
+	path = src/spatial_coord_to_pd_code
+	url = git@github.com:TopologicalKnotIndexer/spatial_coord_to_pd_code.git
