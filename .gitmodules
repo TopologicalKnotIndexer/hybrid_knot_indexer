@@ -1,0 +1,6 @@
+[submodule "src/khovanov-indexer"]
+	path = src/khovanov-indexer
+	url = git@github.com:TopologicalKnotIndexer/khovanov-indexer.git
+[submodule "src/HOMFLY-PT-indexer"]
+	path = src/HOMFLY-PT-indexer
+	url = git@github.com:TopologicalKnotIndexer/HOMFLY-PT-indexer.git
