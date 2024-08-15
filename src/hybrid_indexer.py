@@ -22,7 +22,9 @@ def hybrid_indexer(pd_code: list) -> list: # 给出 pd_code 根据两种不变�
     time_begin   = time.time()
     namelist_kho = kho_inter.to_knotname(pd_code)
     time_end     = time.time()
-    if time_end - time_begin <= TIME_THRESH: # 可以计算 homflypt 多项式
+    if len(namelist_kho) == 1: # 如果 khovanov 已经能确定具体的扭结类型，就不要再算 HOMFLY-PT 了
+        return namelist_kho
+    if time_end - time_begin <= TIME_THRESH: # 如果 khovanov 没有超时，则可以计算 homflypt 多项式
         namelist_hom = hom_inter.to_knotname(pd_code)
         return merge_name_list(namelist_kho, namelist_hom)
     else:
