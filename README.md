@@ -57,13 +57,13 @@ INFO: testing for knot type (K8a9 ) ... [    PASSED]
 在项目根目录下，执行以下代码以实现对扭结类型的预测：
 
 ```bash
-python3 ./src/main.py --che <分子坐标信息文件名>
+bash python3.sh ./src/main.py --che <分子坐标信息文件名>
 ```
 
 程序会将所有可能成为答案的扭结名称输出到标准输出流。例如你可以运行以下命令：
 
 ```bash
-python3 ./src/main.py --che "./src/che_data/6_1/data.closed_knot_6_1_L100_sample_1"
+bash python3.sh ./src/main.py --che "./src/che_data/6_1/data.closed_knot_6_1_L100_sample_1"
 ```
 
 程序将会输出一行内容：
