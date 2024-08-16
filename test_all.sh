@@ -4,7 +4,7 @@ SCRIPT_FOLDER=$(dirname "$SCRIPT_PATH")
 pushd "$SCRIPT_FOLDER" > /dev/null
 
 # 删除压缩包中原先自带的二进制版本
-KNOT_PDCODE_BIN="./src/spatial_coord_to_pd_code/src/knot-pdcode"
+KNOT_PDCODE_BIN="./src/che_data_to_pd_code/src/spatial_coord_to_pd_code/src/knot-pdcode"
 if [ -f "$KNOT_PDCODE_BIN" ]; then
     echo -e "\033[1;34mINFO\033[0m: erasing original knot-pdcode binary." 1>&2
     rm "$KNOT_PDCODE_BIN"
