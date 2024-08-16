@@ -6,7 +6,7 @@
 ## 前置条件
 
 - 指令集架构为 `x86_64`，使用 `linux` （`tested under linux 6.10.4`）
-- 终端中能够使用 `bash`, `java` 以及 `python3` 命令
+- 终端中能够使用 `bash`, `java`, `g++` 以及 `python3` 命令
 
 
 
@@ -28,6 +28,8 @@ bash ./test_all.sh
 INFO: testing sage                  ... [    PASSED]
 INFO: testing python (basic)        ... [    PASSED]
 INFO: testing python snappy         ... [NOT PASSED]
+INFO: using python3.11 packed in sagemath.
+INFO: building knot-pdcode with g++.
 INFO: testing for knot type (K6a1 ) ... [    PASSED]
 INFO: testing for knot type (K6a2 ) ... [    PASSED]
 INFO: testing for knot type (K6a3 ) ... [    PASSED]

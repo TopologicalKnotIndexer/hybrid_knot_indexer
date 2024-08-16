@@ -11,6 +11,6 @@ if [ -f "$KNOT_PDCODE_BIN" ]; then
 fi
 
 bash ./src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/x86_64-sage-minimal/src/bin/portable_sage/test_all.sh
-bash ./python3.sh ./src/main.py --test
+bash python3.sh ./src/main.py --test
 
 popd > /dev/null
