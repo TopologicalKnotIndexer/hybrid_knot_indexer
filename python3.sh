@@ -7,6 +7,6 @@ PYTHON_FILE="./src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/x86_64-sage-minima
 chmod +x "$PYTHON_FILE"
 
 echo -e "\033[1;34mINFO\033[0m: using python3.11 packed in sagemath." 1>&2
-"$PYTHON_FILE" $@
+"$PYTHON_FILE" "$@"
 
 popd > /dev/null
