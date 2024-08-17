@@ -25,11 +25,14 @@ bash ./test_all.sh
 程序将会输出类似如下内容：
 
 ```bash
+INFO: erasing original knot-pdcode binary.
 INFO: testing sage                  ... [    PASSED]
 INFO: testing python (basic)        ... [    PASSED]
 INFO: testing python snappy         ... [NOT PASSED]
 INFO: using python3.11 packed in sagemath.
 INFO: building knot-pdcode with g++.
+INFO: testing for knot type (K0a1 ) ... [    PASSED]
+INFO: testing for knot type (K3a1 ) ... [    PASSED]
 INFO: testing for knot type (K6a1 ) ... [    PASSED]
 INFO: testing for knot type (K6a2 ) ... [    PASSED]
 INFO: testing for knot type (K6a3 ) ... [    PASSED]
