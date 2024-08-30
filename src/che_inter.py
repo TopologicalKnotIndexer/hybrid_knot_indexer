@@ -17,9 +17,13 @@ def load_module_from_path(path: str, mod_name: str): # 从指定路径导入一�
     return mod
 # ======================================== END IMPORT FROM PATH ======================================== #
 
+from mytimer import timer_wrap_gen
+
+@timer_wrap_gen("che_inter")
 def che_data_to_pd_code(che_data_file_path: str) -> list:
     assert os.path.isfile(che_data_file_path)
-    return load_module_from_path(SUBDIR, "che_data_to_pd_code").che_data_to_pd_code(che_data_file_path)
+    ans = load_module_from_path(SUBDIR, "che_data_to_pd_code").che_data_to_pd_code(che_data_file_path)
+    return ans
 
 if __name__ == "__main__":
     test_file = os.path.join(DIRNOW, "che_data", "6_1", "data.closed_knot_6_1_L100_sample_1")

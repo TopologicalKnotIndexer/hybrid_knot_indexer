@@ -18,8 +18,12 @@ def load_module_from_path(path: str, mod_name: str): # 从指定路径导入一�
     return mod
 # ======================================== END IMPORT FROM PATH ======================================== #
 
+from mytimer import timer_wrap_gen
+
+@timer_wrap_gen("kho_inter")
 def to_knotname(pd_code: list) -> list:
-    return load_module_from_path(SUBDIR, "khovanov_indexer").khovanov_indexer(pd_code)
+    ans = load_module_from_path(SUBDIR, "khovanov_indexer").khovanov_indexer(pd_code)
+    return ans
 
 if __name__ == "__main__": # 测试 K11a1
     print(to_knotname([[4, 2, 5, 1], [10, 6, 11, 5], [8, 3, 9, 4], [2, 9, 3, 10], [16, 12, 17, 11], [14, 7, 15, 8], 
