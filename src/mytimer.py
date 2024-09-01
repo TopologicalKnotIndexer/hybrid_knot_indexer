@@ -1,6 +1,6 @@
 import time
 import sys
-GLOBAL_TIMER_ON_DEFAULT = True
+GLOBAL_TIMER_ON_DEFAULT = False # 计时器回显开关
 
 class MyTimer:
     def __init__(self, timer_name: str) -> None:
