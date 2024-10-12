@@ -18,6 +18,9 @@ def load_module_from_path(path: str, mod_name: str): # 从指定路径导入一�
     return mod
 # ======================================== END IMPORT FROM PATH ======================================== #
 
+from mytimer import timer_wrap_gen
+
+@timer_wrap_gen("hom_inter")
 def to_knotname(pd_code: list) -> list:
     return load_module_from_path(SUBDIR, "homflypt_indexer").homflypt_indexer(pd_code)
 
