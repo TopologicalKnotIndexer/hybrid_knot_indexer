@@ -1,24 +1,35 @@
-# 桥接：https://github.com/TopologicalKnotIndexer/spatial_coord_to_pd_code
-import os
-DIRNOW = os.path.dirname(os.path.abspath(__file__))
-SUBDIR = os.path.join(DIRNOW, "spatial_coord_to_pd_code", "src") # 子包路径
+"""Run the bundled spatial-coordinate converter as a local program."""
 
-# ======================================== BEGIN IMPORT FROM PATH ======================================== #
-import importlib
-import json
+from ast import literal_eval
+from pathlib import Path
+import subprocess
 import sys
-def load_module_from_path(path: str, mod_name: str): # 从指定路径导入一个包
-    assert os.path.isdir(path)                       # 路径必须存在
-    path         = os.path.abspath(path)             # 获得绝对路径
-    old_sys_path = json.loads(json.dumps(sys.path))  # 存档旧的 sys.path
-    sys.path     = [path] + sys.path                 # 将新的路径加入 sys.path
-    mod          = importlib.import_module(mod_name) # 加载指定的包
-    sys.path     = old_sys_path                      # 恢复旧的 sys.path
-    return mod
-# ======================================== END IMPORT FROM PATH ======================================== #
 
-def to_pdcode(spatial_coord: list) -> list:
-    return load_module_from_path(SUBDIR, "spatial_coord_to_pd_code").spatial_coord_to_pd_code(spatial_coord)
 
-if __name__ == "__main__":
-    print(to_pdcode([[1, 2, 3], [2, 3, 4], [3, 4, 5]])) # K0a1
+SOURCE_DIR = Path(__file__).resolve().parent
+CONVERTER_MAIN = SOURCE_DIR / "spatial_coord_to_pd_code" / "src" / "main.py"
+
+
+def to_pdcode(spatial_coord: list[list[float]], *, timeout: float = 120.0) -> list[list[int]]:
+    if not isinstance(spatial_coord, list):
+        raise TypeError("spatial_coord must be a list")
+    completed = subprocess.run(
+        [sys.executable, str(CONVERTER_MAIN)],
+        input=repr(spatial_coord),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=timeout,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip()
+        raise RuntimeError(f"spatial converter failed: {detail or 'no diagnostic output'}")
+    try:
+        result = literal_eval(completed.stdout.strip())
+    except (SyntaxError, ValueError) as exc:
+        raise RuntimeError(f"spatial converter returned invalid output: {completed.stdout!r}") from exc
+    if not isinstance(result, list):
+        raise RuntimeError("spatial converter did not return a PD-code list")
+    return result

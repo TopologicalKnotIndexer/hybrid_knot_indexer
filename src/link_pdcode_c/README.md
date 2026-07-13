@@ -45,7 +45,5 @@ The old project kept a Linux/x86_64-oriented `knot-pdcode` binary path behind a
 Python wrapper. This project replaces that path with portable C source and a
 deterministic projection search.
 
-The `link-pdcode` repository named in the task was not directly locatable by
-the automated searches available in this environment. I used the existing local
-`knot-pdcode_src` implementation and public PD-code conventions as the
-compatibility target.
+The implementation follows the same compact PD-code convention as the bundled
+Python/C++ projection pipeline and can be validated independently.

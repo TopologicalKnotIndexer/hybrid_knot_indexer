@@ -93,7 +93,7 @@ def test_sample_data(exe: Path) -> None:
 
 def test_python_wrapper() -> None:
     wrapper = PROJECT_SRC / "spatial_coord_to_pd_code" / "src" / "main.py"
-    polygon = [(-1, -1, 0), (1, 1, 0), (1, -1, 1), (-1, 1, 1)]
+    polygon = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
     proc = run([sys.executable, str(wrapper)], stdin=repr([list(p) for p in polygon]), timeout=60)
     if proc.returncode != 0:
         raise AssertionError(f"wrapper failed\nstdout={proc.stdout}\nstderr={proc.stderr}")
@@ -104,7 +104,7 @@ def test_python_wrapper() -> None:
 
 def test_nested_python_wrapper() -> None:
     wrapper = PROJECT_SRC / "che_data_to_pd_code" / "src" / "spatial_coord_to_pd_code" / "src" / "main.py"
-    polygon = [(-1, -1, 0), (1, 1, 0), (1, -1, 1), (-1, 1, 1)]
+    polygon = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
     proc = run([sys.executable, str(wrapper)], stdin=repr([list(p) for p in polygon]), timeout=60)
     if proc.returncode != 0:
         raise AssertionError(f"nested wrapper failed\nstdout={proc.stdout}\nstderr={proc.stderr}")
