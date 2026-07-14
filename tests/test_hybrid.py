@@ -107,7 +107,7 @@ class HybridIndexerTests(unittest.TestCase):
         self.assertIn("missing.data", completed.stderr)
 
     def test_cli_forwards_backend_controls_to_full_regression(self):
-        sage_uri = "wsl://Ubuntu-26.04/home/neko/miniforge3/envs/math_env/bin/sage"
+        sage_executable = "custom-sage"
         with patch("main.test_all.main", return_value=0) as regression:
             self.assertEqual(
                 cli.main(
@@ -116,7 +116,7 @@ class HybridIndexerTests(unittest.TestCase):
                         "--java",
                         "custom-java",
                         "--sage",
-                        sage_uri,
+                        sage_executable,
                         "--projection-timeout",
                         "10",
                         "--khovanov-timeout",
@@ -131,7 +131,7 @@ class HybridIndexerTests(unittest.TestCase):
             )
         regression.assert_called_once_with(
             java_path="custom-java",
-            sage_path=sage_uri,
+            sage_path=sage_executable,
             projection_timeout=10.0,
             khovanov_timeout=20.0,
             homfly_timeout=30.0,

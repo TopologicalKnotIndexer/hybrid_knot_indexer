@@ -15,10 +15,9 @@ other invariant's union.
 - Python 3.10 or newer
 - A C++17 compiler (`g++` by default, or set `CXX`)
 - A Java runtime for nontrivial Khovanov computations
-- SageMath only when an ambiguous result requires HOMFLY-PT computation
-
-On Windows, SageMath in WSL can be selected with a URI such as
-`wsl://Ubuntu-26.04/home/user/miniforge3/envs/math_env/bin/sage`.
+- SageMath only when an ambiguous result requires HOMFLY-PT computation;
+  `sage` is used by default, or supply an executable through `--sage` or
+  `sage_path`
 
 The repository is independently cloneable. All organization-owned source,
 catalogs, native code, and JavaKh bytecode are ordinary tracked files—not Git
@@ -86,10 +85,10 @@ Backend and timeout controls are honored in `--test` mode. The full automated
 integration test is opt-in because it compiles native code and invokes JavaKh
 and SageMath for all 22 samples:
 
-```powershell
-$env:TKI_RUN_FULL_INTEGRATION = '1'
-$env:TKI_SAGE_EXECUTABLE = 'wsl://Ubuntu-26.04/home/user/miniforge3/envs/math_env/bin/sage'
-$env:TKI_JAVA_MAX_HEAP = '1g'
+```bash
+TKI_RUN_FULL_INTEGRATION=1 \
+TKI_SAGE_EXECUTABLE=/path/to/sage \
+TKI_JAVA_MAX_HEAP=1g \
 python -m unittest discover -s tests -v
 ```
 
