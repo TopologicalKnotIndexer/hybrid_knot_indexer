@@ -100,3 +100,16 @@ values, so the available invariants cannot claim a unique result.
 build and test scripts. Audited dependency revisions are recorded in
 `VENDORED_DEPENDENCIES.md`. No Python packages are installed or published by
 maintenance.
+
+## Citation
+
+If you use this repository in academic work, please cite it as:
+
+```bibtex
+@software{topologicalknotindexer_hybrid_knot_indexer,
+  author = {{TopologicalKnotIndexer contributors}},
+  title = {{hybrid\_knot\_indexer}},
+  year = {2026},
+  url = {https://github.com/TopologicalKnotIndexer/hybrid_knot_indexer}
+}
+```
