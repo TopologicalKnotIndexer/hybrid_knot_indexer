@@ -17,6 +17,9 @@ other invariant's union.
 - A Java runtime for nontrivial Khovanov computations
 - SageMath only when an ambiguous result requires HOMFLY-PT computation
 
+On Windows, SageMath in WSL can be selected with a URI such as
+`wsl://Ubuntu-26.04/home/user/miniforge3/envs/math_env/bin/sage`.
+
 The repository is independently cloneable. All organization-owned source,
 catalogs, native code, and JavaKh bytecode are ordinary tracked files—not Git
 submodules. Linux, Bash, and symbolic links are not required.
@@ -78,6 +81,21 @@ Run all committed molecular samples explicitly:
 ```text
 python src/main.py --test
 ```
+
+Backend and timeout controls are honored in `--test` mode. The full automated
+integration test is opt-in because it compiles native code and invokes JavaKh
+and SageMath for all 22 samples:
+
+```powershell
+$env:TKI_RUN_FULL_INTEGRATION = '1'
+$env:TKI_SAGE_EXECUTABLE = 'wsl://Ubuntu-26.04/home/user/miniforge3/envs/math_env/bin/sage'
+$env:TKI_JAVA_MAX_HEAP = '1g'
+python -m unittest discover -s tests -v
+```
+
+The regression requires exact candidate sets. `K8a8` deliberately expects
+`K10n6, K8a8`: both catalogued knots share the tested Khovanov and HOMFLY-PT
+values, so the available invariants cannot claim a unique result.
 
 `src/link_pdcode_c` is a standalone C11 projection implementation with its own
 build and test scripts. Audited dependency revisions are recorded in

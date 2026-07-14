@@ -14,6 +14,7 @@ import che_file_to_knot_name  # noqa: E402
 import hom_inter  # noqa: E402
 import hybrid_indexer  # noqa: E402
 import kho_inter  # noqa: E402
+import main as cli  # noqa: E402
 import spa_inter  # noqa: E402
 from timer_process import run_subprocess_with_time_limit  # noqa: E402
 
@@ -104,6 +105,38 @@ class HybridIndexerTests(unittest.TestCase):
         )
         self.assertEqual(completed.returncode, 2)
         self.assertIn("missing.data", completed.stderr)
+
+    def test_cli_forwards_backend_controls_to_full_regression(self):
+        sage_uri = "wsl://Ubuntu-26.04/home/neko/miniforge3/envs/math_env/bin/sage"
+        with patch("main.test_all.main", return_value=0) as regression:
+            self.assertEqual(
+                cli.main(
+                    [
+                        "--test",
+                        "--java",
+                        "custom-java",
+                        "--sage",
+                        sage_uri,
+                        "--projection-timeout",
+                        "10",
+                        "--khovanov-timeout",
+                        "20",
+                        "--homfly-timeout",
+                        "30",
+                        "--max-heap",
+                        "2g",
+                    ]
+                ),
+                0,
+            )
+        regression.assert_called_once_with(
+            java_path="custom-java",
+            sage_path=sage_uri,
+            projection_timeout=10.0,
+            khovanov_timeout=20.0,
+            homfly_timeout=30.0,
+            max_heap="2g",
+        )
 
 
 if __name__ == "__main__":

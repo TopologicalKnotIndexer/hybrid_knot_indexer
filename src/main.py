@@ -23,7 +23,14 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         if args.test:
-            return test_all.main()
+            return test_all.main(
+                java_path=args.java,
+                sage_path=args.sage,
+                projection_timeout=args.projection_timeout,
+                khovanov_timeout=args.khovanov_timeout,
+                homfly_timeout=args.homfly_timeout,
+                max_heap=args.max_heap,
+            )
         for name in che_file_to_knot_name.che_file_to_knot_name(
             args.che,
             java_path=args.java,

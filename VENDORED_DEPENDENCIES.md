@@ -11,9 +11,9 @@ This repository is self-contained. Former Git submodules are tracked as regular 
 | `src/khovanov-indexer/src/khovanov-homology-list` | [khovanov-homology-list](https://github.com/TopologicalKnotIndexer/khovanov-homology-list) | `d3ae43d297b8de7689afd6a925e991fa762420bb` |
 | `src/khovanov-indexer/src/slow_dict_reader` | [slow_dict_reader](https://github.com/TopologicalKnotIndexer/slow_dict_reader) | `85e9af7681b8a9b569d3ffae2c68e8d861f89c54` |
 | `src/khovanov-indexer/src/slow_dict_reader/src/knotname-reg` | [knotname-reg](https://github.com/TopologicalKnotIndexer/knotname-reg) | `fce68fc3d45a8f3d4e6da81efc07b069ed8179ad` |
-| `src/HOMFLY-PT-indexer` | [HOMFLY-PT-indexer](https://github.com/TopologicalKnotIndexer/HOMFLY-PT-indexer) | `a6bf7847ee87444a3134939ceebb8f0e8d0c66da` |
-| `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver` | [HOMFLY-PT-solver](https://github.com/TopologicalKnotIndexer/HOMFLY-PT-solver) | `c801d5dbed2edf57f1c08ed22976bd78cac2b900` |
-| `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/x86_64-sage-minimal` | [x86_64-sage-minimal](https://github.com/TopologicalKnotIndexer/x86_64-sage-minimal) | `ebc8eeaeda03e91425ef0d0cc11c3a7c977f0104` |
+| `src/HOMFLY-PT-indexer` | [HOMFLY-PT-indexer](https://github.com/TopologicalKnotIndexer/HOMFLY-PT-indexer) | `f8bd17955998fa50e9ec798bd49d89850b9fcc52` |
+| `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver` | [HOMFLY-PT-solver](https://github.com/TopologicalKnotIndexer/HOMFLY-PT-solver) | `ab927191911ea4ffd70f85d09089e59804265500` |
+| `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/x86_64-sage-minimal` | [x86_64-sage-minimal](https://github.com/TopologicalKnotIndexer/x86_64-sage-minimal) | `89e585fadcfa3181a1f3f4db2293e1b849142362` |
 | `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/pd_code_de_r1_k8` | [pd_code_de_r1_k8](https://github.com/TopologicalKnotIndexer/pd_code_de_r1_k8) | `395d0b272a06e90c28db90a38803412e8eb9edb5` |
 | `src/HOMFLY-PT-indexer/src/HOMFLY-PT-solver/src/pd_code_input_sanity` | [pd_code_input_sanity](https://github.com/TopologicalKnotIndexer/pd_code_input_sanity) | `9f0233a3b48043a9e164d98ad6cee644cc792a28` |
 | `src/HOMFLY-PT-indexer/src/HOMFLY-PT-polynomial-list` | [HOMFLY-PT-polynomial-list](https://github.com/TopologicalKnotIndexer/HOMFLY-PT-polynomial-list) | `cf8ca873e165169405565dd7b1b7b8577c49162f` |
